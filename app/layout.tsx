@@ -5,15 +5,6 @@ import { minikitConfig } from "../minikit.config";
 import { RootProvider } from "./rootProvider";
 import "./globals.css";
 
-const app_id = process.env.NEXT_BASE_APP_ID;
-
-export const metadata: Metadata = {
-  ...(app_id && {
-    other: {
-      "base:app_id": app_id,
-    },
-  }),
-};
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: minikitConfig.miniapp.name,
