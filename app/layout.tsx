@@ -5,15 +5,13 @@ import { minikitConfig } from "../minikit.config";
 import { RootProvider } from "./rootProvider";
 import "./globals.css";
 
-// ❗️ REMOVE `export const metadata`
-// Next.js does NOT allow metadata + generateMetadata together.
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: minikitConfig.miniapp.name,
     description: minikitConfig.miniapp.description,
     other: {
-      "base:app_id": "693a9b718a7c4e55fec73df7", // <-- your BASE APP ID
+      "base:app_id": "693a9b718a7c4e55fec73df7", 
       "fc:frame": JSON.stringify({
         version: minikitConfig.miniapp.version,
         imageUrl: minikitConfig.miniapp.heroImageUrl,
