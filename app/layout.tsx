@@ -5,18 +5,15 @@ import { minikitConfig } from "../minikit.config";
 import { RootProvider } from "./rootProvider";
 import "./globals.css";
 
-
-export const metadata: Metadata = {
-  other: {
-    'base:app_id': '693a9b718a7c4e55fec73df7',
-  },
-};
+// ❗️ REMOVE `export const metadata`
+// Next.js does NOT allow metadata + generateMetadata together.
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: minikitConfig.miniapp.name,
     description: minikitConfig.miniapp.description,
     other: {
+      "base:app_id": "693a9b718a7c4e55fec73df7", // <-- your BASE APP ID
       "fc:frame": JSON.stringify({
         version: minikitConfig.miniapp.version,
         imageUrl: minikitConfig.miniapp.heroImageUrl,
@@ -44,9 +41,9 @@ const sourceCodePro = Source_Code_Pro({
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <RootProvider>
       <html lang="en">
